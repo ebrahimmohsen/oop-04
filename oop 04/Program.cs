@@ -132,6 +132,52 @@ class DerivedClass2 : BaseClass
 
 #endregion
 
+# region part2 Q1 Define Class Duration To include Three Attributes Hours, Minutes and Seconds
+class Duration
+{
+    public int Hours { get; set; }
+    public int Minutes { get; set; }
+    public int Seconds { get; set; }
+
+    public Duration() { }
+
+    public Duration(int hours, int minutes, int seconds)
+    {
+        Hours = hours;
+        Minutes = minutes;
+        Seconds = seconds;
+    }
+
+    public Duration(int totalSeconds)
+    {
+        Hours = totalSeconds / 3600;
+        totalSeconds %= 3600;
+        Minutes = totalSeconds / 60;
+        Seconds = totalSeconds % 60;
+    }
+
+    public override string ToString()
+    {
+        string result = "";
+        if (Hours > 0) result += $"Hours: {Hours}, ";
+        if (Minutes > 0 || Hours > 0) result += $"Minutes :{Minutes}, ";
+        result += $"Seconds :{Seconds}";
+        return result;
+    }
+
+    public override bool Equals(object obj)
+    {
+        if (obj is Duration other)
+            return Hours == other.Hours && Minutes == other.Minutes && Seconds == other.Seconds;
+        return false;
+    }
+
+    public override int GetHashCode()
+    {
+        return (Hours, Minutes, Seconds).GetHashCode();
+    }
+}
+#endregion
 
 class Program
 {
