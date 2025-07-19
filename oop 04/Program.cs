@@ -1,4 +1,6 @@
-﻿namespace oop_04;
+﻿using System;
+
+namespace oop_04;
 
 #region part 1  Q1 Write a class named Calculator that contains a method named Add. Overload the Add method
 class Calculator
@@ -77,6 +79,26 @@ class ComplexNumber
 }
 #endregion
 
+#region part 1 Q4 a- Create a base class named Employee with method That Work as it prints    "Employee is  working".
+b- Create a derived class named Manager that overrides the Work method to print "Manager is managing". 
+
+    class Employee
+{
+    public virtual void Work()
+    {
+        Console.WriteLine("Employee is working");
+    }
+}
+
+class Manager : Employee
+{
+    public override void Work()
+    {
+        base.Work();
+        Console.WriteLine("Manager is managing");
+    }
+}
+#endregion
 
 class Program
 {
