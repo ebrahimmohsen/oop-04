@@ -179,6 +179,78 @@ class Duration
 }
 #endregion
 
+#region part 2 Q2 Override All System. Object Members [To String(), Equals(),GetHashCode() ]
+public static class DurationOperators
+{
+    public static Duration operator +(Duration d1, Duration d2)
+    {
+        return new Duration(ToSeconds(d1) + ToSeconds(d2));
+    }
+
+    public static Duration operator +(Duration d1, int seconds)
+    {
+        return new Duration(ToSeconds(d1) + seconds);
+    }
+
+    public static Duration operator +(int seconds, Duration d1)
+    {
+        return new Duration(ToSeconds(d1) + seconds);
+    }
+
+    public static Duration operator ++(Duration d)
+    {
+        return new Duration(ToSeconds(d) + 60);
+    }
+
+    public static Duration operator --(Duration d)
+    {
+        return new Duration(ToSeconds(d) - 60);
+    }
+
+    public static Duration operator -(Duration d1, Duration d2)
+    {
+        return new Duration(ToSeconds(d1) - ToSeconds(d2));
+    }
+
+    public static bool operator >(Duration d1, Duration d2)
+    {
+        return ToSeconds(d1) > ToSeconds(d2);
+    }
+
+    public static bool operator <(Duration d1, Duration d2)
+    {
+        return ToSeconds(d1) < ToSeconds(d2);
+    }
+
+    public static bool operator <=(Duration d1, Duration d2)
+    {
+        return ToSeconds(d1) <= ToSeconds(d2);
+    }
+
+    public static bool operator >=(Duration d1, Duration d2)
+    {
+        return ToSeconds(d1) >= ToSeconds(d2);
+    }
+
+    public static bool operator true(Duration d)
+    {
+        return ToSeconds(d) > 0;
+    }
+
+    public static bool operator false(Duration d)
+    {
+        return ToSeconds(d) == 0;
+    }
+
+    public static explicit operator DateTime(Duration d)
+    {
+        return new DateTime().AddHours(d.Hours).AddMinutes(d.Minutes).AddSeconds(d.Seconds);
+    }
+
+    private static int ToSeconds(Duration d) => d.Hours * 3600 + d.Minutes * 60 + d.Seconds;
+}
+#endregion
+
 class Program
 {
     static void Main(string[] args)
