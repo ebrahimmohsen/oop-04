@@ -47,6 +47,37 @@ class Rectangle
 
 #endregion
 
+#region part 1 Q3 Define a class Complex Number that represents a complex number with real and imaginary parts.
+
+class ComplexNumber
+{
+    public int Real { get; set; }
+    public int Imaginary { get; set; }
+
+    public ComplexNumber(int r, int i)
+    {
+        Real = r;
+        Imaginary = i;
+    }
+
+    public static ComplexNumber operator +(ComplexNumber c1, ComplexNumber c2)
+    {
+        return new ComplexNumber(c1.Real + c2.Real, c1.Imaginary + c2.Imaginary);
+    }
+
+    public static ComplexNumber operator -(ComplexNumber c1, ComplexNumber c2)
+    {
+        return new ComplexNumber(c1.Real - c2.Real, c1.Imaginary - c2.Imaginary);
+    }
+
+    public override string ToString()
+    {
+        return $"{Real} + {Imaginary}i";
+    }
+}
+#endregion
+
+
 class Program
 {
     static void Main(string[] args)
