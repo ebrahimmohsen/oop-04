@@ -100,6 +100,39 @@ class Manager : Employee
 }
 #endregion
 
+#region part1 Q5 a) Create a base class BaseClass with a virtual method DisplayMessage that prints  "Message from BaseClass".
+
+b) Create a derived class DerivedClass1 that overrides the DisplayMessage method using the override keyword.
+
+C) Create another derived class DerivedClass2 that hides the DisplayMessage method using the new keyword.
+
+    class BaseClass
+{
+    public virtual void DisplayMessage()
+    {
+        Console.WriteLine("Message from BaseClass");
+    }
+}
+
+class DerivedClass1 : BaseClass
+{
+    public override void DisplayMessage()
+    {
+        Console.WriteLine("Message from DerivedClass1 (override)");
+    }
+}
+
+class DerivedClass2 : BaseClass
+{
+    public new void DisplayMessage()
+    {
+        Console.WriteLine("Message from DerivedClass2 (new)");
+    }
+}
+
+#endregion
+
+
 class Program
 {
     static void Main(string[] args)
