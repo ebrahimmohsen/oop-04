@@ -21,6 +21,32 @@ class Calculator
 
 #endregion
 
+
+#region part 1 Q2 Create a class named Rectangle with the following constructors
+class Rectangle
+{
+    int width, height;
+
+    public Rectangle()
+    {
+        width = 0;
+        height = 0;
+    }
+
+    public Rectangle(int w, int h)
+    {
+        width = w;
+        height = h;
+    }
+
+    public Rectangle(int size)
+    {
+        width = height = size;
+    }
+}
+
+#endregion
+
 class Program
 {
     static void Main(string[] args)
