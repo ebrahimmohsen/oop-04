@@ -251,6 +251,51 @@ public static class DurationOperators
 }
 #endregion
 
+#region part 2 Q3 Define All Required Constructors to Produce this output
+class Program
+{
+    static void Main()
+    {
+        Duration D1 = new Duration(1, 10, 15);
+        Console.WriteLine(D1.ToString()); // Hours: 1, Minutes :10, Seconds :15
+
+        D1 = new Duration(3600);
+        Console.WriteLine(D1.ToString()); // Hours: 1, Minutes :0, Seconds :0
+
+        Duration D2 = new Duration(7800);
+        Console.WriteLine(D2.ToString()); // Hours: 2, Minutes :10, Seconds :0
+
+        Duration D3 = new Duration(666);
+        Console.WriteLine(D3.ToString()); // Minutes :11, Seconds :6
+
+        D3 = D1 + D2;
+        Console.WriteLine(D3); // should display sum
+
+        D3 = D1 + 7800;
+        Console.WriteLine(D3);
+
+        D3 = 666 + D3;
+        Console.WriteLine(D3);
+
+        D3 = ++D1;
+        Console.WriteLine(D3);
+
+        D3 = --D2;
+        Console.WriteLine(D3);
+
+        D1 = D1 - D2;
+        Console.WriteLine(D1);
+
+        if (D1 > D2) Console.WriteLine("D1 is greater");
+        if (D1 <= D2) Console.WriteLine("D1 is less or equal");
+        if (D1) Console.WriteLine("D1 has time");
+
+        DateTime dt = (DateTime)D1;
+        Console.WriteLine("Converted to DateTime: " + dt.ToLongTimeString());
+    }
+}
+#endregion
+
 class Program
 {
     static void Main(string[] args)
